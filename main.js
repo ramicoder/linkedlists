@@ -4,6 +4,7 @@ const list = createLinkedList();
 
 list.append(1);
 list.append(2);
-list.prepend(0);
+list.prepend(5);
 console.log(list.toString());
 console.log(list.size());
+console.log(list.head());

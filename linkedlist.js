@@ -31,7 +31,8 @@ export default function createLinkedList() {
     }
 
     const head = () => {
-
+        if (headNode === null) return undefined;
+        else return headNode.value;
     }
 
     const tail = () => {
