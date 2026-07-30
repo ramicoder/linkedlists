@@ -7,6 +7,5 @@ list.append(2);
 list.prepend("first");
 list.append("last");
 console.log(list.toString())
-console.log(list.contains("first"))
-
-console.log(list.findIndex(0));
+console.log(list.insertAt(2, 99, 50))
+console.log(list.toString())

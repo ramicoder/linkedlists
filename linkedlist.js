@@ -106,7 +106,32 @@ export default function createLinkedList() {
     }
 
     const insertAt = (index, ...values) => {
+        if (index < 0) return false;
 
+        if (index === 0) {
+            for (let i = values.length - 1; i >= 0; i--) {
+                const newNode = createNode(values[i]);
+                newNode.nextNode = headNode;
+                headNode = newNode;
+            }
+            return true;
+        }
+        let tmp = headNode;
+        let i = 0;
+
+        while (tmp !== null && i < index - 1) {
+            tmp = tmp.nextNode;
+            i++;
+        }
+        if (tmp === null) return false;
+
+        for (const value of values) {
+            const newNode = createNode(value);
+            newNode.nextNode = tmp.nextNode;
+            tmp.nextNode = newNode;
+            tmp = newNode;
+        }
+        return true;
     }
 
     const removeAt = index => {
