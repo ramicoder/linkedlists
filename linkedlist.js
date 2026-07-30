@@ -36,11 +36,21 @@ export default function createLinkedList() {
     }
 
     const tail = () => {
-
+        if (headNode === null) return undefined;
+        let tmp = headNode;
+        while (tmp.nextNode !== null) tmp = tmp.nextNode;
+        return tmp.value;
     }
 
     const at = (index) => {
-
+        let i = 0;
+        let tmp = headNode;
+        while (tmp.nextNode !== null && i < index) {
+            tmp = tmp.nextNode;
+            i++;
+        }
+        if (i === index) return tmp.value;
+        else return undefined;
     }
 
     const pop = () => {

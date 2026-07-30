@@ -4,7 +4,11 @@ const list = createLinkedList();
 
 list.append(1);
 list.append(2);
-list.prepend(5);
+list.prepend("first");
+list.append("last");
 console.log(list.toString());
-console.log(list.size());
-console.log(list.head());
+console.log("size: ", list.size());
+console.log("first: ", list.head());
+console.log("last: ", list.tail());
+
+console.log(list.at(1));
