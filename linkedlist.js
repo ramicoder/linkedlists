@@ -72,6 +72,14 @@ export default function createLinkedList() {
 
     const contains = (value) => {
 
+        let tmp = headNode;
+        while (tmp !== null) {
+            if (tmp.value === value) {
+                return true;
+            }
+            tmp = tmp.nextNode;
+        }
+        return false;
     }
 
     const findIndex = (value) => {
