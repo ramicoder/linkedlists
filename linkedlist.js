@@ -1,12 +1,22 @@
-function createLinkedList() {
-
-
+export default function createLinkedList() {
+    let headNode = null;
     const append = value => {
-
+        if (headNode === null) headNode = createNode(value);
+        else {
+            let tmp = headNode;
+            while (tmp.nextNode !== null) {
+                tmp = tmp.nextNode;
+            }
+            tmp.nextNode = createNode(value);
+        }
     }
 
     const prepend = value => {
-
+        if (headNode === null) headNode.value = value;
+        else {
+            let newHeadNode = createNode(value, headNode)
+            headNode = newHeadNode;
+        }
     }
 
     const size = () => {
@@ -38,7 +48,15 @@ function createLinkedList() {
     }
 
     const toString = () => {
-
+        let tmp = headNode;
+        let result = '';
+        while (tmp !== null) {
+            result += `( ${tmp.value} ) --> `;
+            tmp = tmp.nextNode;
+        }
+        result += "null";
+        return result;
+        console.log(result);
     }
 
     const insertAt = (index, ...values) => {
