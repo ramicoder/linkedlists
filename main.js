@@ -10,5 +10,7 @@ console.log(list.toString());
 console.log("size: ", list.size());
 console.log("first: ", list.head());
 console.log("last: ", list.tail());
-
 console.log(list.at(1));
+
+console.log("popping: ", list.pop());
+console.log(list.toString());

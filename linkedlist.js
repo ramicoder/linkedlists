@@ -54,7 +54,20 @@ export default function createLinkedList() {
     }
 
     const pop = () => {
+        if (headNode === null) return undefined;
 
+        if (headNode.nextNode === null) {
+            const lastValue = headNode.value;
+            headNode = null;
+            return lastValue;
+        }
+
+        let tmp = headNode;
+        while (tmp.nextNode.nextNode !== null) tmp = tmp.nextNode;
+
+        const lastValue = tmp.nextNode.value;
+        tmp.nextNode = null;
+        return lastValue;
     }
 
     const contains = (value) => {
