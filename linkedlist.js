@@ -83,7 +83,14 @@ export default function createLinkedList() {
     }
 
     const findIndex = (value) => {
-
+        let i = 0;
+        let tmp = headNode;
+        while (tmp !== null) {
+            if (tmp.value === value) return i;
+            tmp = tmp.nextNode;
+            i++;
+        }
+        return -1;
     }
 
     const toString = () => {

@@ -8,3 +8,5 @@ list.prepend("first");
 list.append("last");
 console.log(list.toString())
 console.log(list.contains("first"))
+
+console.log(list.findIndex(0));
