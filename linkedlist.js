@@ -20,7 +20,14 @@ export default function createLinkedList() {
     }
 
     const size = () => {
-
+        if (headNode == null) return 0
+        let tmp = headNode;
+        let NodeCounter = 1;
+        while (tmp.nextNode !== null) {
+            NodeCounter++;
+            tmp = tmp.nextNode;
+        }
+        return NodeCounter;
     }
 
     const head = () => {
