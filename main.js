@@ -4,8 +4,8 @@ const list = createLinkedList();
 
 list.append(1);
 list.append(2);
-list.prepend("first");
-list.append("last");
-console.log(list.toString())
-console.log(list.insertAt(2, 99, 50))
-console.log(list.toString())
+list.append(3);
+list.append(4);
+list.append(5);
+list.removeAt(1);
+console.log(list.toString());

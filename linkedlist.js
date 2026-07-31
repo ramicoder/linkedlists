@@ -9,7 +9,7 @@ export default function createLinkedList() {
             }
             tmp.nextNode = createNode(value);
         }
-    }
+    };
 
     const prepend = value => {
         if (headNode === null) headNode.value = value;
@@ -17,7 +17,7 @@ export default function createLinkedList() {
             let newHeadNode = createNode(value, headNode)
             headNode = newHeadNode;
         }
-    }
+    };
 
     const size = () => {
         if (headNode == null) return 0
@@ -28,19 +28,19 @@ export default function createLinkedList() {
             tmp = tmp.nextNode;
         }
         return NodeCounter;
-    }
+    };
 
     const head = () => {
         if (headNode === null) return undefined;
         else return headNode.value;
-    }
+    };
 
     const tail = () => {
         if (headNode === null) return undefined;
         let tmp = headNode;
         while (tmp.nextNode !== null) tmp = tmp.nextNode;
         return tmp.value;
-    }
+    };
 
     const at = (index) => {
         let i = 0;
@@ -51,7 +51,7 @@ export default function createLinkedList() {
         }
         if (i === index) return tmp.value;
         else return undefined;
-    }
+    };
 
     const pop = () => {
         if (headNode === null) return undefined;
@@ -68,7 +68,7 @@ export default function createLinkedList() {
         const lastValue = tmp.nextNode.value;
         tmp.nextNode = null;
         return lastValue;
-    }
+    };
 
     const contains = (value) => {
 
@@ -80,7 +80,7 @@ export default function createLinkedList() {
             tmp = tmp.nextNode;
         }
         return false;
-    }
+    };
 
     const findIndex = (value) => {
         let i = 0;
@@ -91,7 +91,7 @@ export default function createLinkedList() {
             i++;
         }
         return -1;
-    }
+    };
 
     const toString = () => {
         let tmp = headNode;
@@ -103,7 +103,7 @@ export default function createLinkedList() {
         result += "null";
         return result;
         console.log(result);
-    }
+    };
 
     const insertAt = (index, ...values) => {
         if (index < 0) return false;
@@ -132,13 +132,33 @@ export default function createLinkedList() {
             tmp = newNode;
         }
         return true;
-    }
+    };
 
     const removeAt = index => {
+        if (index < 0 || headNode === null) {
+            throw Error(`Index out of range`);
+        }
+        if (index === 0) {
+            headNode = headNode.nextNode;
+            return true;
+        }
+        let tmp = headNode;
+        let i = 0;
 
-    }
+        while (tmp !== null && i < index - 1) {
+            tmp = tmp.nextNode;
+            i++;
+        }
+        if (tmp === null || tmp.nextNode === null) {
+            throw Error(`Index out of range`);
+        }
 
-    return {append, prepend, size, head, tail, at, pop, contains, findIndex, toString, insertAt, removeAt};
+        tmp.nextNode = tmp.nextNode.nextNode;
+        return true;
+    };
+
+    return {append, prepend, size, head, tail, at, pop,
+        contains, findIndex, toString, insertAt, removeAt};
 }
 
 
